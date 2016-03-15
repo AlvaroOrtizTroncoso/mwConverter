@@ -22,7 +22,7 @@ class Test(unittest.TestCase):
 
 
     def testReadConfigFile(self):
-        self.assertEqual( 'http://test.biowikifarm.net', self.config.get( 'defaults', 'baseURL' ) )
+        self.assertEqual( 'http://test.biowikifarm.net', self.config.get( 'defaults', 'baseMwURL' ) )
 
 
 if __name__ == "__main__":
