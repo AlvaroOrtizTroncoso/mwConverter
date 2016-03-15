@@ -3,7 +3,7 @@ Created on 15.03.2016
 Connector for the MediaWiki http API
 @author: Alvaro.Ortiz
 '''
-from pyMwImport.connector.AbstractConnector import AbstractConnector
+from mwConverter.connector.AbstractConnector import AbstractConnector
 
 class MediaWikiApiConnector( AbstractConnector ):
     

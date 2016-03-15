@@ -4,7 +4,7 @@ Created on 15.03.2016
 @author: Alvaro.Ortiz
 '''
 import unittest
-from pyMwImport.importer.CSVImporter import CSVImporter
+from mwConverter.importer.CSVImporter import CSVImporter
 
 
 class CSVImporterTest(unittest.TestCase):

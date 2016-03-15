@@ -3,7 +3,7 @@ Created on 15.03.2016
 
 @author: Alvaro.Ortiz
 '''
-from pyMwImport.importer.AbstractImporter import AbstractImporter
+from mwConverter.importer.AbstractImporter import AbstractImporter
 import csv
 
 class CSVImporter( AbstractImporter ):

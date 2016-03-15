@@ -7,7 +7,7 @@ See README.md for usage
 import ConfigParser
 import sys, traceback
 import os.path
-from pyMwImport.formatter.TableFormatter import TableFormatter
+from mwConverter.formatter.TableFormatter import TableFormatter
 
 '''Path to configuration file'''
 configPath =  "../config.ini"
@@ -26,7 +26,7 @@ def run():
         # Determine the importer to instantiate, by examining the extension of the filename
         extension = os.path.splitext( source )[1]
         if extension == ".csv":
-            from pyMwImport.importer.CSVImporter import CSVImporter
+            from mwConverter.importer.CSVImporter import CSVImporter
             importer = CSVImporter()
             
         else:

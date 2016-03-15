@@ -4,8 +4,8 @@ Created on 15.03.2016
 @author: Alvaro.Ortiz
 '''
 import unittest
-from pyMwImport.formatter.TableFormatter import TableFormatter
-from pyMwImport.importer.CSVImporter import CSVImporter
+from mwConverter.formatter.TableFormatter import TableFormatter
+from mwConverter.importer.CSVImporter import CSVImporter
 
 class Test( unittest.TestCase ):
     formatter = None

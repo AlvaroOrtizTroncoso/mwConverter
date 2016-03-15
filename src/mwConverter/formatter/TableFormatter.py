@@ -3,7 +3,7 @@ Created on 15.03.2016
 Format data into mediawiki format 
 @author: Alvaro.Ortiz
 '''
-from pyMwImport.formatter.AbstractFormatter import AbstractFormatter
+from mwConverter.formatter.AbstractFormatter import AbstractFormatter
 
 class TableFormatter( AbstractFormatter ):
     
