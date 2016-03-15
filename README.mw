@@ -1,2 +1,2 @@
-# pyMwImport
-Scripts to handle Mediawiki content, using the [RESTful API](http://www.mediawiki.org/wiki/API:Main_page).
+# mwConverter
+Scripts to convert MediaWiki content to and from other formats (csv, scorm, latex ...) 
