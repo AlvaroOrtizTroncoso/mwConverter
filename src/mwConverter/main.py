@@ -8,6 +8,7 @@ import ConfigParser
 import sys, traceback
 import os.path
 from mwConverter.formatter.TableFormatter import TableFormatter
+from mwConverter.connector.MediaWikiApiConnector import MediaWikiApiConnector
 
 '''Path to configuration file'''
 configPath =  "../config.ini"
@@ -38,6 +39,9 @@ def run():
         #Format data into a table
         formatter = TableFormatter()
         table = formatter.format( data )
+        
+        #Connect to the wiki
+        connector = MediaWikiApiConnector( config )
         
     except:
         traceback.print_exc(file=sys.stdout)

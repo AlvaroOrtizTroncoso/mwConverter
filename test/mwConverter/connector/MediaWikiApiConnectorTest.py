@@ -5,16 +5,21 @@ Created on 15.03.2016
 '''
 import unittest
 import ConfigParser
+from mwConverter.connector.MediaWikiApiConnector import MediaWikiApiConnector
 
 class Test(unittest.TestCase):
     '''Path to configuration file'''
     configPath =  "../../test.ini"
     config = None
+    connector = None
 
     def setUp(self):
-        # Read the config fle
+        # Read the configuration file
         self.config = ConfigParser.ConfigParser()
         self.config.read( self.configPath )
+        
+        # Instantiate the connector
+        self.connector = MediaWikiApiConnector( self.config )
 
 
     def tearDown(self):
@@ -22,8 +27,21 @@ class Test(unittest.TestCase):
 
 
     def testReadConfigFile(self):
-        self.assertEqual( 'http://test.biowikifarm.net', self.config.get( 'defaults', 'baseMwURL' ) )
+        self.assertEqual( 'http://test.biowikifarm.net/test26wmf5/', self.config.get( 'defaults', 'baseMwURL' ) )
 
+
+    def testInstantiate(self):
+        self.assertTrue( self.connector )
+        
+
+    def testLogin(self):
+        self.assertTrue( self.connector.login() )
+        
+
+    def testProtectedContent(self):
+        # Note: page has to be regular content page for this test, not a special page
+        self.assertTrue( self.connector.loadPage( 'Test' ) )
+        
 
 if __name__ == "__main__":
     unittest.main()
