@@ -4,16 +4,16 @@ Created on 16.03.2016
 @author: Alvaro.Ortiz
 '''
 import unittest
-from mwConverter.importer.LaTeXImporter import LaTeXImporter
+from mwConverter.parser.LaTeXParser import LaTeXParser
 
 
 class Test(unittest.TestCase):
     source = "../../../testdata/Test.tex"
-    importer = None
+    parser = None
 
 
     def setUp(self):
-        self.importer = LaTeXImporter()
+        self.parser = LaTeXParser()
 
 
 
@@ -22,20 +22,19 @@ class Test(unittest.TestCase):
 
 
     '''
-    Test if importer could be instantiated
+    Test if parser could be instantiated
     '''
     def testInstantiate(self):
-        self.assertTrue( self.importer )
+        self.assertTrue( self.parser )
         
         
     '''
     Open the testfile. It contains LaTeX markup
     '''
     def testLoadLaTeX(self):
-        source = self.importer.load( self.source )
+        source = self.parser.load( self.source )
         self.assertTrue( source )
 
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

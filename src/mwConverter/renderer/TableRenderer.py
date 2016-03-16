@@ -3,9 +3,9 @@ Created on 15.03.2016
 Format data into mediawiki format 
 @author: Alvaro.Ortiz
 '''
-from mwConverter.formatter.AbstractFormatter import AbstractFormatter
+from mwConverter.renderer.AbstractRenderer import AbstractRenderer
 
-class TableFormatter( AbstractFormatter ):
+class TableRenderer( AbstractRenderer ):
     
     def format(self, data):
         """Format an array of data into a Mediawiki table

@@ -4,30 +4,30 @@ Created on 15.03.2016
 @author: Alvaro.Ortiz
 '''
 import unittest
-from mwConverter.importer.CSVImporter import CSVImporter
+from mwConverter.parser.CSVParser import CSVParser
 
 
-class CSVImporterTest(unittest.TestCase):
+class CSVParserTest(unittest.TestCase):
     source = "../../../testdata/Test.csv"
-    importer = None
+    parser = None
     
     def setUp(self):
-        self.importer = CSVImporter()
+        self.parser = CSVParser()
 
     def tearDown(self):
         pass
 
     '''
-    Test if importer could be instantiated
+    Test if parser could be instantiated
     '''
     def testInstantiate(self):
-        self.assertTrue( self.importer )
+        self.assertTrue( self.parser )
     
     '''
     Open the testfile. It contains a spreadsheet with a header and 10 data rows
     '''
     def testLoadCSV(self):
-        data = self.importer.load( self.source )
+        data = self.parser.load( self.source )
         self.assertEqual( 10, len( data ) )
 
     '''
@@ -35,7 +35,7 @@ class CSVImporterTest(unittest.TestCase):
     {'country (year)': 'USA [1810]', 'remarks': 'material reaches Berlin per F.W.Sieber', 'profession': 'collector', 'name': 'Abbot, John'}
     '''        
     def testRow(self):
-        data = self.importer.load( self.source )
+        data = self.parser.load( self.source )
         row = data[0]
         self.assertEqual( 'USA [1810]', row[ 'country (year)' ])
         self.assertEqual( 'material reaches Berlin per F.W.Sieber', row[ 'remarks' ])

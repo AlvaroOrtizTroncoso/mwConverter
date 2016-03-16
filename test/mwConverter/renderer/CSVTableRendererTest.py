@@ -4,32 +4,32 @@ Created on 15.03.2016
 @author: Alvaro.Ortiz
 '''
 import unittest
-from mwConverter.formatter.TableFormatter import TableFormatter
-from mwConverter.importer.CSVImporter import CSVImporter
+from mwConverter.renderer.TableRenderer import TableRenderer
+from mwConverter.parser.CSVParser import CSVParser
 
 class Test( unittest.TestCase ):
-    formatter = None
+    renderer = None
 
     def setUp( self ):
-        self.formatter = TableFormatter()
+        self.renderer = TableRenderer()
 
 
     def tearDown( self ):
         pass
 
     '''
-    Test if formatter can be instantiated
+    Test if renderer can be instantiated
     '''
     def testInstantiate( self ):
-        self.assertTrue( self.formatter )
+        self.assertTrue( self.renderer )
         
     '''
-    Formatter should be able to format an empty array
+    Renderer should be able to format an empty array
     3 rows of markup are expected for an empty table
     plus one at the end of the file
     '''
     def testEmptyTable(self):
-        markup = self.formatter.format( [] )
+        markup = self.renderer.format( [] )
         self.assertEquals( 4, len( markup.split( '\n' ) ) )
     
     '''
@@ -38,10 +38,10 @@ class Test( unittest.TestCase ):
     def testFilledTable( self ):
         # Load test data
         source = "../../../testdata/Test.csv"
-        importer = CSVImporter()
-        data = importer.load( source )
+        parser = CSVParser()
+        data = parser.load( source )
         
-        markup = self.formatter.format( data )
+        markup = self.renderer.format( data )
         # 4 Rows table header and footer
         # 4 Rows column headers + 1 line separator
         # 10 rows x (4 columns of data + 1 line separator per row)

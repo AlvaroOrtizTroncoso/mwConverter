@@ -1,12 +1,12 @@
 '''
 Created on 15.03.2016
-Abstract base class for all formatters
+Abstract base class for all renderers
 @author: Alvaro.Ortiz
 '''
-class AbstractFormatter:
+class AbstractRenderer:
     
     '''
-    Format an array of data into Mediawiki markup
+    Render an array of data into Mediawiki markup
     
     @param data array
     '''

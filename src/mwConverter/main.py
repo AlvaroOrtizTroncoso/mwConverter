@@ -40,19 +40,19 @@ if __name__ == "__main__":
         path = sys.argv[1]
         pageTitle = sys.argv[2]
         
-        # Determine the importer and formatter to instantiate, by examining the extension of the filename
+        # Determine the parser and renderer to instantiate, by examining the extension of the filename
         extension = os.path.splitext( path )[1]
         if extension == ".csv":
-            from mwConverter.importer.CSVImporter import CSVImporter
-            from mwConverter.formatter.TableFormatter import TableFormatter
-            importer = CSVImporter()
-            formatter = TableFormatter()
+            from mwConverter.parser.CSVParser import CSVParser
+            from mwConverter.renderer.TableRenderer import TableRenderer
+            parser = CSVParser()
+            renderer = TableRenderer()
             
         elif extension == ".tex":
-            from mwConverter.importer.LaTeXImporter import LaTeXImporter
-            from mwConverter.formatter.PageFormatter import PageFormatter
-            importer = LaTeXImporter()
-            formatter = PageFormatter()
+            from mwConverter.parser.LaTeXParser import LaTeXParser
+            from mwConverter.renderer.PageRenderer import PageRenderer
+            parser = LaTeXParser()
+            renderer = PageRenderer()
             
         else:
             raise ValueError( 'Unsupported file format %s' % extension )
@@ -62,7 +62,7 @@ if __name__ == "__main__":
         connector = MediaWikiApiConnector( config )
         
         # Instantiate and run the converter
-        converter = Converter( importer, formatter, connector )
+        converter = Converter( parser, renderer, connector )
         converter.run( path, pageTitle )
         
     except:

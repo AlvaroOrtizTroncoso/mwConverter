@@ -4,10 +4,10 @@ Created on 15.03.2016
 @author: Alvaro.Ortiz
 '''
 import csv
-from mwConverter.importer.AbstractImporter import AbstractImporter
-from mwConverter.importer.CustomDictReader import CSVRW
+from mwConverter.parser.AbstractParser import AbstractParser
+from mwConverter.parser.CustomDictReader import CSVRW
 
-class CSVImporter( AbstractImporter ):
+class CSVParser( AbstractParser ):
     def load(self, path):
         """Load a ';' separated list of entries into an array of OrderedDict. CSV column headers are OrderedDict keys.
         Keeps the order of the columns.

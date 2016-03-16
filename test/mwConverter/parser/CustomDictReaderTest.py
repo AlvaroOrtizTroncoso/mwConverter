@@ -4,7 +4,7 @@ Created on 16.03.2016
 @author: Alvaro.Ortiz
 '''
 import unittest
-from mwConverter.importer.CustomDictReader import CustomDictReader, CSVRW
+from mwConverter.parser.CustomDictReader import CustomDictReader, CSVRW
 
 
 class Test(unittest.TestCase):
