@@ -41,7 +41,7 @@ class Test( unittest.TestCase ):
         parser = CSVParser()
         data = parser.load( source )
         
-        markup = self.renderer.format( data )
+        markup = self.renderer.render( data )
         # 4 Rows table header and footer
         # 4 Rows column headers + 1 line separator
         # 10 rows x (4 columns of data + 1 line separator per row)

@@ -85,7 +85,7 @@ class CSVRW(object):
         '''
         self.file_name = name
 
-    def getCsvFileName():
+    def getCsvFileName(self):
         '''
             @brief getter
             @return returns the file name
@@ -155,7 +155,7 @@ class CSVRW(object):
 
         return retVal
 
-    def createCsv(writeMode, outFileName = None, delim = None):
+    def createCsv(self,writeMode, outFileName = None, delim = None):
         '''
             @brief create a csv from self.csv_dict
             @param writeMode   - 'w' || 'wb'
