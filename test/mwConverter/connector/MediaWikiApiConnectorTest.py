@@ -37,11 +37,13 @@ class Test(unittest.TestCase):
     def testLogin(self):
         self.assertTrue( self.connector.login() )
         
-
-    def testProtectedContent(self):
-        # Note: page has to be regular content page for this test, not a special page
-        self.assertTrue( self.connector.loadPage( 'Test' ) )
         
+    def testCreatePage(self):
+        # Note: page has to be regular content page for this test, not a special page
+        self.assertTrue( self.connector.createPage( 'Test', 'Test content' ) )
+        self.assertTrue( self.connector.loadPage( 'Test' ) )
+        self.assertTrue( self.connector.deletePage( 'Test' ) )
+
 
 if __name__ == "__main__":
     unittest.main()

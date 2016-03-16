@@ -8,5 +8,15 @@ class AbstractConnector:
     def login(self):
         raise NotImplementedError        
         
-    def createPage(self, content):
+    def loadPage(self, title, content):
         raise NotImplementedError
+    
+    def createPage(self, title, content):
+        raise NotImplementedError
+    
+    def deletePage(self, title):
+        raise NotImplementedError
+    
+    def content(self):
+        raise NotImplementedError
+        

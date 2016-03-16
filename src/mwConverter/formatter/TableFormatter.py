@@ -7,13 +7,12 @@ from mwConverter.formatter.AbstractFormatter import AbstractFormatter
 
 class TableFormatter( AbstractFormatter ):
     
-    '''
-    Format an array of data into a Mediawiki table
-    
-    @param: data array
-    @return: String
-    '''
     def format(self, data):
+        """Format an array of data into a Mediawiki table
+        
+        data -- array
+        return -- String
+        """
         response = '{| class="wikitable"\n'
         response += '|-\n'
         
