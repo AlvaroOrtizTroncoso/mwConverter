@@ -32,8 +32,8 @@ class Test(unittest.TestCase):
     Open the testfile. It contains LaTeX markup
     '''
     def testLoadLaTeX(self):
-        source = self.parser.load( self.source )
-        self.assertTrue( source )
+        document = self.parser.load( self.source )
+        self.assertTrue( document )
 
 
 if __name__ == "__main__":

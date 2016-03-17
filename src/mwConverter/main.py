@@ -45,14 +45,16 @@ if __name__ == "__main__":
         if extension == ".csv":
             from mwConverter.parser.CSVParser import CSVParser
             from mwConverter.renderer.TableRenderer import TableRenderer
+            
             parser = CSVParser()
             renderer = TableRenderer()
             
         elif extension == ".tex":
             from mwConverter.parser.LaTeXParser import LaTeXParser
-            from mwConverter.renderer.PageRenderer import PageRenderer
+            from mwConverter.renderer.MwPageRenderer import MwPageRenderer
+            
             parser = LaTeXParser()
-            renderer = PageRenderer()
+            renderer = MwPageRenderer()
             
         else:
             raise ValueError( 'Unsupported file format %s' % extension )

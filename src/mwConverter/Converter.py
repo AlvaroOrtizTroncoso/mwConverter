@@ -12,6 +12,6 @@ class Converter:
         
     def run(self, title, path):
         data = self._parser.load( path )
-        content = self._renderer.render( data )
+        content = self._renderer.renderMW( data )
         self._connector.createPage( title, content )
 

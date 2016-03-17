@@ -29,7 +29,7 @@ class Test( unittest.TestCase ):
     plus one at the end of the file
     '''
     def testEmptyTable(self):
-        markup = self.renderer.format( [] )
+        markup = self.renderer.renderMW( [] )
         self.assertEquals( 4, len( markup.split( '\n' ) ) )
     
     '''
@@ -41,7 +41,7 @@ class Test( unittest.TestCase ):
         parser = CSVParser()
         data = parser.load( source )
         
-        markup = self.renderer.render( data )
+        markup = self.renderer.renderMW( data )
         # 4 Rows table header and footer
         # 4 Rows column headers + 1 line separator
         # 10 rows x (4 columns of data + 1 line separator per row)

@@ -10,5 +10,5 @@ class AbstractRenderer:
     
     @param data array
     '''
-    def render(self, data):
+    def renderMW(self, data):
         raise NotImplementedError

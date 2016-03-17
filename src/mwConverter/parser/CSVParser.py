@@ -16,20 +16,28 @@ class CSVParser( AbstractParser ):
         @return: array
         """
         response = []
+        csvFile = None
         
-        # Open the file to read the headers in the right order
-        csvFile = open( path, 'rb' )
-        csvReader = csv.DictReader( csvFile, delimiter = ';' )
-        sort = csvReader.fieldnames[0]
-
-        # Re-open the file using the ordered reader this time
-        orderedReader = CSVRW()
-        success, odict = orderedReader.createCsvDict( sort, ';', None, path )
+        try:
+            # Open the file to read the headers in the right order
+            csvFile = open( path, 'rb' )
+            csvReader = csv.DictReader( csvFile, delimiter = ';' )
+            sort = csvReader.fieldnames[0]
+    
+            # Re-open the file using the ordered reader this time
+            orderedReader = CSVRW()
+            success, odict = orderedReader.createCsvDict( sort, ';', None, path )
+            
+            # Compile a list (sequence) of OrderedDicts
+            if success:
+                for row in odict.values():
+                    response.append( row )
+                    
+            return response
         
-        # Compile a list (sequence) of OrderedDicts
-        if success:
-            for row in odict.values():
-                response.append( row )
-                
-        return response
+        except:
+            raise
+        
+        finally:
+            if csvFile: csvFile.close()
             

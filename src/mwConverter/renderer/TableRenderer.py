@@ -7,7 +7,7 @@ from mwConverter.renderer.AbstractRenderer import AbstractRenderer
 
 class TableRenderer( AbstractRenderer ):
     
-    def render(self, data):
+    def renderMW(self, data):
         """Format an array of data into a Mediawiki table
         
         data -- array
