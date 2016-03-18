@@ -1,2 +1,26 @@
 # mwConverter
-Scripts to convert MediaWiki content to and from other formats (csv, scorm, latex ...) 
+**Import a CSV or LaTeX file into a MediaWiki page.**
+
+If the wiki page does not exist, it will be created (or re-created)
+If the wiki page exists, nothing will happen.
+
+The wiki username, password and endpoint URL are set in an .ini file (for wikis that require authentication).
+Copy example.ini to config.ini and edit before running.
+
+Takes two (unnamed) arguments:
+source_file and wiki_page_name
+
+## Examples
+
+### Import a Spreadsheet (in csv format) into MediaWiki
+The CSV files (.csv) will be converted to a table in MediaWiki markup. 
+Make sure the CSV is in UTF-8, else convert it, e.g. using Notepad.
+```sh
+$ python main.py spreadsheet.csv TestPage
+```
+
+### Import a LaTeX document into MediaWiki
+LaTeX files (.tex) will be layout as-is
+```sh
+$ python main.py sample.tex TestPage
+```

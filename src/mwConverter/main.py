@@ -28,6 +28,15 @@ if __name__ == "__main__":
     
     Takes two (unnamed) arguments:
     source_file and wiki_page_name
+    
+    EXAMPLES:
+    
+    ;Import a Spreadsheet (in csv format) into MediaWiki
+    : python main.py spreadsheet.csv TestPage
+    
+    ;Import a LaTeX document into MediaWiki
+    : python main.py sample.tex TestPage
+
     """
     try:
         # Read the config fle

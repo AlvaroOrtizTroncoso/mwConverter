@@ -10,7 +10,7 @@ class Converter:
         self._renderer = renderer
         self._connector = connector
         
-    def run(self, title, path):
+    def run(self, path, title ):
         data = self._parser.load( path )
         content = self._renderer.renderMW( data )
         self._connector.createPage( title, content )

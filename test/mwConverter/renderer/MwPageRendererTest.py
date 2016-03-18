@@ -68,7 +68,7 @@ class Test(unittest.TestCase):
         
         markup = self.renderer.renderMW( data )
         self.assertTrue( markup )
-        self.assertTrue( "=LaTeX=" in markup )
+        self.assertTrue( "{{DISPLAYTITLE:LaTeX}}" in markup )
         
     '''
     render the test doc in XML
@@ -80,8 +80,35 @@ class Test(unittest.TestCase):
         data = parser.load( source )
         
         markup = self.renderer.renderMW( data )
-        print markup
+        # Test something was rendered
         self.assertTrue( markup )
+        
+        # document title
+        print markup
+        self.assertTrue( "{{DISPLAYTITLE:An Example Document}}" in markup )
+        
+        # author, date
+        self.assertTrue( "Leslie Lamport" in markup )
+        self.assertTrue( "January 21, 1994" in markup )
+        
+        # document sections
+        self.assertTrue( "==1 Ordinary Text==" in markup )
+        self.assertTrue( "==2 Displayed Text==" in markup )
+        
+        # Emphasis
+        self.assertTrue( "''italic''" in markup )
+        
+        # quotes
+        self.assertTrue( "<blockquote>This is a short quotation." in markup )
+        self.assertTrue( "See how it is formatted.</blockquote>" in markup )
+        
+        # lists
+        self.assertTrue( "* This is the first item of an itemized list." in markup )
+        self.assertTrue( "# This is the first item of an enumerated" in markup )
+        
+        #verse
+        self.assertTrue( "<blockquote>There is an environment" in markup )
+        self.assertTrue( "forced to be terse.</blockquote>" in markup )
 
 
 if __name__ == "__main__":
