@@ -1,12 +1,13 @@
 '''
-Created on 17.03.2016
+Created on 20.03.2016
 
-@author: Alvaro.Ortiz
+@author: alvaro
 '''
 import unittest
 import ConfigParser
-from mwConverter.renderer.MwPageRenderer import MwPageRenderer
+from mwConverter.renderer.mwXSLTRenderer import MwXSLTRenderer
 from mwConverter.parser.LaTeXParser import LaTeXParser
+
 
 class Test(unittest.TestCase):
     '''Path to configuration file'''
@@ -21,8 +22,7 @@ class Test(unittest.TestCase):
         self.config.read( self.configPath )
         
         #Instantiate the renderer
-        #self.renderer = MwPageRenderer(self.config)
-        self.renderer = MwPageRenderer()
+        self.renderer = MwXSLTRenderer( self.config.get('defaults', 'template') )
 
 
     def tearDown(self):
@@ -42,11 +42,10 @@ class Test(unittest.TestCase):
     def testEmptyDoc(self):
         markup = self.renderer.renderMW( None )
         self.assertEquals( 1, len( markup.split( '\n' ) ) )
-        
+    
         
     '''
     render the test doc in MediaWiki markup
-    '''
     def testRenderMW( self ):
         # Load test data
         source = "../../../testdata/Test.tex"
@@ -56,7 +55,8 @@ class Test(unittest.TestCase):
         markup = self.renderer.renderMW( data )
         self.assertTrue( markup )
         self.assertTrue( "{{DISPLAYTITLE:LaTeX}}" in markup )
-        
+   '''
+    
     '''
     render the test doc in MediaWiki markup
     '''
@@ -96,7 +96,6 @@ class Test(unittest.TestCase):
         #verse
         self.assertTrue( "<blockquote>There is an environment" in markup )
         self.assertTrue( "forced to be terse.</blockquote>" in markup )
-
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

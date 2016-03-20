@@ -10,6 +10,9 @@ Copy example.ini to config.ini and edit before running.
 Takes two (unnamed) arguments:
 source_file and wiki_page_name
 
+## Dependencies
+Depends on the python packages 'requests' ans 'plasTeX' (please install using easy_install or pip).
+
 ## Examples
 
 ### Import a Spreadsheet (in csv format) into MediaWiki

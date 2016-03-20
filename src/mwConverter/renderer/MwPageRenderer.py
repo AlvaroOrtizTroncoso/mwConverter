@@ -19,10 +19,6 @@ class MwPageRenderer(AbstractRenderer, Renderer):
     * blockquotes
     * ordered and unordered lists
     """    
-    def renderXML(self, data):
-        """Format a plasTeX document into XML"""
-        if data == None: return ""
-        return data.toXML()
     
     
     def renderMW(self, data):
